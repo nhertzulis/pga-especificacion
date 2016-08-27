@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{aed2-symb,aed2-itef,aed2-tad,caratula}
+
+\begin{document}
+
+
+\section{TAD Nat extendido}
+\begin{tad}
+
+\tadOtrasOperaciones
+\tadOperacion{mod}{nat/n, nat/m}{nat}{}
+\tadOperacion{$\bullet$ $/$ $\bullet$}{nat/n, nat/m}{nat}{$\lnot$ m=0?}
+\tadOperacion{raiz}{nat/n}{nat}{}
+
+\tadAxiomas[\paratodo{nat}{n,m}]
+\tadAxioma{mod(n,m)}{\IF m $>$ n THEN m - n ELSE n - m FI}
+\tadAxioma{n $/$ m}{\IF m $>$ n THEN 0 ELSE 1 + (n - m) $/$ (m) FI}
+
+\end{tad}
+
+\section{TAD \tadNombre{Tupla(Nat, Nat)} extendido}
+\begin{tad}
+
+\tadOtrasOperaciones
+\tadOperacion{distancia}{tupla(nat,nat)/t1, tupla(nat,nat)/t2}{nat}{}
+\tadOperacion{distaciaAux}{tupla(nat,nat)/t1, tupla(nat,nat)/t2}{nat}{}
+
+\tadAxiomas[\paratodo{tupla(nat,nat)}{t1,t2}]
+\tadAxioma{distancia(t1,t2)}{raiz(distaciaAux(t1,t2))}
+\tadAxioma{distaciaAux(t1,t2)}{mod($\pi$1(t1),$\pi$1(t2)) $\times$ mod($\pi$1(t1),$\pi$1(t2)) + mod($\pi$2(t1),$\pi$2(t2)) $\times$ mod($\pi$2(t1),$\pi$2(t2))}
+
+\end{tad}
+
+\section{TAD \tadNombre{Sistema}}
+
+\begin{tad}
+
+\tadObservadores
+
+\tadGeneradores
+
+\tadOtrasOperaciones
+
+\tadAxiomas[]
+
+\end{tad}
+
+\end{document}
